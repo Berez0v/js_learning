@@ -1,10 +1,15 @@
 //I'm not sure about this solution
-let extract = function (firstPos,secondPos){
-    let  array =[1, 2, 3, 4, 5, 6, 7, 8, 9];
-    let output=[]; 
-    for (;firstPos<=secondPos;firstPos++){
-        output.push(array[firstPos]);
+Array.prototype.extract = function(firstPos,secondPos) {
+	let rtnArray= [];
+    if (secondPos > this.length-1){
+        secondPos=this.length-1;
     }
-      return output;
-}
-console.log(extract(2,4));
+     for (; firstPos <= secondPos; firstPos++) {
+       rtnArray.push(this[firstPos]);
+    }
+    return rtnArray;
+};
+
+let  myArray =[1, 2, 3, 4, 5, 6, 7, 8, 9];
+console.log(myArray.extract(2,4));  //[3, 4, 5]
+console.log(myArray.extract(2,100));  //[3, 4, 5, 6, 7, 8, 9]
