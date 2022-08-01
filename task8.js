@@ -1,14 +1,16 @@
-function checkColor(color) {
-    const colors = ["red", "green", "blue"];
+Array.prototype.checkColor = function (color) {
     let idx = -1;
-    colors.forEach((element, index) => {
+    this.forEach((element, index) => {
         if (element === color) {
             idx = index;
         }
     });
     return idx;
-
 }
-console.log(checkColor("blusdaf"));
-console.log(checkColor("blue"));
-console.log(checkColor("blusdaf"));
+
+const colors = ["red", "green", "blue", "yellow", "black", "white"];
+
+console.log(colors.checkColor("blusdaf"));
+console.log(colors.checkColor("blue"));
+console.log(colors.checkColor("blusdaf"));
+console.log(colors.checkColor("black"));
