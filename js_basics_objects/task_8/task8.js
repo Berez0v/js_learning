@@ -18,7 +18,7 @@ function translate(myObj, arrOfObjects) {
         myObj[key] = arrOfObjects.find(element => {
             let findKey = Object.keys(element)
             if (findKey[0] === key) {
-                      return element[findKey[0]];
+                return element[findKey[0]];
             }
         })[key];
 

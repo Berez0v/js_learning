@@ -23,16 +23,16 @@ let Fedor = {
 
 
 function allValues(obj) {
-    let rtn = Object.entries(obj);
-    rtn.forEach((element, index) => {
+    let returnValue = Object.entries(obj);
+    returnValue.forEach((element, index) => {
         if (typeof element[1] === 'object') {
             let temp = allValues(element[1]);
             element = temp;
-            rtn.push(temp);
+            returnValue.push(temp);
         }
     })
 
-    return rtn;
+    return returnValue;
 }
 
 function deleteObjects(arr) {
@@ -46,18 +46,18 @@ function deleteObjects(arr) {
     })
 }
 function searchIntersections(firstV, secondV) {
-    let rtn =[];
+    let returnValue =[];
     firstV.forEach((element, index) => {
         if (Array.isArray(element[1])) {
-            rtn.push(searchIntersections(element, secondV[index]));
+            returnValue.push(searchIntersections(element, secondV[index]));
 
         }
         if (element[1] === secondV[index][1]) {
-            rtn.push(element);
+            returnValue.push(element);
         }
         
     })
-    return rtn;
+    return returnValue;
 }
 function returnValue(arr){
     arr.forEach(element => {
