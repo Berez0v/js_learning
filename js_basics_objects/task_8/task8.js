@@ -10,19 +10,20 @@ const weekDays = {
 
 
 
-function translate(myObj) {
-    const Ro = [{ "Mo": "Luni" }, { "Tu": "Marti" }, { "We": "Miercuri" }, { "Th": "Joi" }, { "Fr": "Vineri" }, { "Sa": "Simbata" }, { "Su": "Duminica" }]
-   
-    for (let key in myObj) {
-        for (let i = 0; i < Ro.length; i++) {
-            for (let value in Ro[i]) {
-                if (value === key) {
-                    myObj[key] = Ro[i][value];
-                }
-            }
-        }
-    }
+const Ro = [{ "Mo": "Luni" }, { "Tu": "Marti" }, { "We": "Miercuri" }, { "Th": "Joi" }, { "Fr": "Vineri" }, { "Sa": "Simbata" }, { "Su": "Duminica" }];
+function translate(myObj, arrOfObjects) {
 
+    for (let key in myObj) {
+
+        myObj[key] = arrOfObjects.find(element => {
+            let findKey = Object.keys(element)
+            if (findKey[0] === key) {
+                      return element[findKey[0]];
+            }
+        })[key];
+
+
+    }
 }
-translate(weekDays);
+translate(weekDays, Ro);
 console.log(weekDays);
