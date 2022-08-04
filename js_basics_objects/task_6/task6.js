@@ -3,11 +3,9 @@ let defaultArray = [{ x: 1, y: 2 }, { x: 3, y: 4 }, { x: null, y: 4 }, { x: 3, y
 function correctCoordinates(array) {
     return array.filter(element => {
         let rtn = true;
-        for (let point in element) {
-            if (typeof element[point] !== 'number') {
+         if (typeof element["x"] !== 'number' || typeof element["y"] !== 'number') {
                 rtn = false;
             }
-        }
         return rtn;
     });
 
