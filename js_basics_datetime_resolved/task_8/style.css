@@ -1,0 +1,12 @@
+#clock {
+    color: green;
+}
+#clock :first-child {
+    color:red ;
+}
+#clock :last-child{
+    color: blue;
+}
+button {
+    margin-right: 5px;
+}
