@@ -1,0 +1,23 @@
+section {
+    margin: 0 auto;
+background-color: aqua;
+max-width: 500px;
+width: 100%;
+justify-content: center;
+align-items: center;
+padding: 15px 25px;
+}
+section h3 {
+    text-align: center;
+}
+section div {
+    background-color: green;
+    margin-bottom: 20px;
+    border: 1px solid gray;
+    border-radius: 16px;
+    padding: 0 50px;
+}
+section div p {
+    text-align: center;
+    background-color: bisque;
+}
