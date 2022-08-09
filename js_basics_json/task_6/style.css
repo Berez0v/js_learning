@@ -21,3 +21,7 @@ section div p {
     text-align: center;
     background-color: bisque;
 }
+ section p {
+    background-color: rgba(193, 189, 150, 0.979);
+    padding: 25px;
+}

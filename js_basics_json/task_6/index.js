@@ -94,6 +94,16 @@ function showPerson(myObj) {
     Section.appendChild(myContacts);
     Section.appendChild(workInfo);
 }
+
+function extractCurrencyValue(str) {
+    value = "";
+    for (let i = 0; i < str.length; i++)
+        if (!isNaN(str[i])) {
+            value += str[i];
+        }
+    return parseInt(value);
+}
+
 function showAllSalaries(arrayOfObj) {
     let body = document.getElementById('myList')
     let Section = document.createElement('section');
@@ -101,12 +111,28 @@ function showAllSalaries(arrayOfObj) {
     let article = document.createElement('h3');
     article.textContent = 'Info about salaries';
     Section.appendChild(article);
-
+    let sum = 0;
+    let min = Number.MAX_VALUE;
+    let max = Number.MIN_VALUE;
     arrayOfObj.forEach(element => {
         let paragraph = document.createElement('p');
         paragraph.textContent = `Name: ${element['name']} | Salary : ${element['Work']['Salary']}`;
+        let salaryInNumber = extractCurrencyValue(element['Work']['Salary']);
+        sum += salaryInNumber;
+        if (salaryInNumber < min) {
+            min = salaryInNumber;
+        }
+        if (salaryInNumber > max) {
+            max = salaryInNumber;
+        }
+
         Section.appendChild(paragraph);
     })
+
+    let newParagraph = document.createElement('p');
+    newParagraph.textContent = ` Average Salary : $${sum / (person.length)}
+    | minimal Salary $${min} | max Salary $${max} | sum of all salaries $${sum}`
+    Section.appendChild(newParagraph);
 }
 person.forEach(element => {
     showPerson(element);
