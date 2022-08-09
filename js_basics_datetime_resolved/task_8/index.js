@@ -10,7 +10,7 @@ function currentTime() {
     document.getElementById("hours").innerText = `${hour}:`;
     document.getElementById("mins").innerText = `${min}:`;
     document.getElementById("sec").innerText = `${sec}`;
-    clocktimer = setTimeout(currentTime, 999)
+    clocktimer = setTimeout(currentTime, 1000)
 }
 function updateTime(k) {
     if (k < 10) {
