@@ -1,5 +1,6 @@
 let clocktimer;
 function currentTime() {
+    clearTimeout(clocktimer);
     let date = new Date();
     let hour = date.getHours();
     let min = date.getMinutes();
