@@ -21,7 +21,6 @@
     height: 50px;
     position: fixed;
   }
-  
   #elem2:focus {
     outline: 1px dashed pink;
   }

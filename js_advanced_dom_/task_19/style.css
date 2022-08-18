@@ -1,0 +1,13 @@
+div {
+    width: 250px;
+    border: 2px solid darkgray;
+    border-radius: 16px;
+    height: 75px;
+    background-color: gray;
+    display: inline-block;
+    margin-right: 25px;
+}
+
+div #child {
+
+}
