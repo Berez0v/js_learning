@@ -1,0 +1,39 @@
+table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+    width: 300px;
+}
+
+td,
+th {
+    padding: 5px;
+    border: 1px solid black;
+    box-sizing: border-box;
+}
+th{
+    background-color: lightgray;
+    text-align: left;
+}
+
+td:last-child,
+th:last-child {
+    width: 30px;
+    text-align: center;
+    color: red;
+}
+
+
+.Form input{
+    width: 350px;
+    height: 30px;
+    margin-top: 30px;
+    border: 1px solid black;
+    border-right: none;
+
+}
+.Form button{
+   width: 50px;
+   height: 34px;
+   background-color: lightgreen;
+   border: 1px solid black;
+}
