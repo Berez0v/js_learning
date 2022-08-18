@@ -1,0 +1,35 @@
+#elem {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    background-color: aqua;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+  }
+  
+  #elem:focus {
+    outline: 1px darkmagenta solid;
+  }
+
+  #elem2 {
+    display: inline-block;
+    cursor: pointer;
+    margin: 0;
+    background-color: green;
+    width: 50px;
+    height: 50px;
+    position: fixed;
+  }
+  
+  #elem2:focus {
+    outline: 1px dashed pink;
+  }
+  #field {
+    position: relative;
+    top:100px;
+    left: 100px;
+    background-color: blue;
+    width: 500px;
+    height: 500px;
+  }
