@@ -1,6 +1,6 @@
-let increaseButton = document.getElementById('increase');
-let decreaseButton = document.getElementById('decrease');
-let myInput = document.getElementById('info');
+const increaseButton = document.getElementById('increase');
+const decreaseButton = document.getElementById('decrease');
+const myInput = document.getElementById('info');
 decreaseButton.addEventListener('click', () => {
     myInput.value = parseInt(myInput.value) - 1;
     if (parseInt(myInput.value) === 0) {

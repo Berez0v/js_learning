@@ -1,11 +1,18 @@
-function showNotification(options){
+function showNotification(options) {
   let notify = document.createElement('div');
-  notify.setAttribute('class',`${options.className} notification`); 
-  notify.style.top = `${options.top}px`;
-  notify.style.right = `${options.right}px`;
-  notify.innerText = options.message; 
+  if (options.className) {
+    notify.setAttribute('class', `${options.className} notification`);
+  }
+  if (options.top) {
+    notify.style.top = `${options.top}px`;
+  }
+  if (options.right) {
+    notify.style.right = `${options.right}px`;
+  }
+
+  notify.innerText = options.message;
   document.body.appendChild(notify);
- setTimeout(()=>notify.remove() ,1500 );
+  setTimeout(() => notify.remove(), 1500);
 
 
 }

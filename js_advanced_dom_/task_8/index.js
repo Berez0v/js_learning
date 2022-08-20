@@ -1,9 +1,9 @@
 let myInput = document.querySelector('#inputForText');
 myInput.addEventListener('input', () => {
     document.querySelector('.myBtn').disabled = false;
-    if (!myInput.value) {
-        document.querySelector('.myBtn').disabled = true;
-    }
+
+    document.querySelector('.myBtn').disabled = !myInput.value;
+
 });
 
 let button = document.querySelector('.myBtn');
