@@ -1,0 +1,13 @@
+input{
+    display: block;
+    width: 150px;
+    height: 20px;
+    margin-bottom: 15px;
+}
+#submit{
+    background-color: lightgrey;
+ width: 46px;
+ padding: 4px;
+ border-radius: 3px;
+ border: 1px solid gray;
+}
