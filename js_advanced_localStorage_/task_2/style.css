@@ -1,0 +1,104 @@
+.container {
+    box-sizing: border-box;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    position: relative;
+}
+
+.container input {
+    width: 392px;
+    height: 32px;
+    max-width: 100%;
+    border-radius: 0 8px 8px 0;
+    border: 1px solid gray;
+    /* border: 1px solid black; */
+}
+
+.container h2 {
+    font-size: 35px;
+    text-align: center;
+
+}
+
+.container .count {
+    background-color: lightgreen;
+    width: 60px;
+    height: 25px;
+    border-radius: 8px;
+    margin-left: 175px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding-top: 5px;
+    box-sizing: border-box;
+}
+
+.addButton {
+    position: absolute;
+    right: 50px;
+    height: 36px;
+    border: 1px solid gray;
+    border-left: none;
+    border-radius: 0 8px 8px 0;
+    width: 50px;
+    background-color: lightblue;
+}
+
+.list li {
+    margin-top: 5px;
+    width: 380px;
+    margin-left: 9px;
+    border: 1px solid orange;
+    border-radius: 6px;
+    box-sizing: border-box;
+    padding: 5px 0;
+    position: relative;
+    display: flex;
+}
+
+
+.container .list li div {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    top: 2.5px;
+    /* background-image: url("../redact.png");  */
+    background-image: url('../task_2/redact.png');
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    /* background-color: aqua; */
+}
+
+.container .list li p {
+    background-color: lightcoral;
+    width: 20px;
+    cursor: pointer;
+    margin: 0;
+    height: 20px;
+    padding: 0;
+    text-align: center;
+    position: absolute;
+    right: 0;
+    top: 2.5px;
+    padding-top: 2px;
+    right: 2px;
+}
+.container .list li input {
+    border: none;
+    height: 20px;
+}
+.acceptChanges {
+    position: absolute;
+    background-color: green;
+    height: 20px;
+    width: 50px;
+    padding-left: 3px;
+    left:290px;
+    cursor: pointer;
+    border-radius: 8px;
+}
