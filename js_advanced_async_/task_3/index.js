@@ -1,18 +1,16 @@
 function serverResponse() {
     let res;
-    setTimeout(()=>{
+    setTimeout(() => {
         document.querySelector('#result').innerText = "response from server";
     }, 2000);
-      return 1;    
+    return 1;
 }
 
 
 async function userRequest() {
-    
-    document.querySelector('#result').innerText = "Waiting for response";
 
-    const response = await serverResponse();
-    return response;
+    document.querySelector('#result').innerText = "Waiting for response";
+    return await serverResponse();
 
 }
 userRequest();
