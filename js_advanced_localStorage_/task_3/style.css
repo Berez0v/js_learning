@@ -1,0 +1,63 @@
+.container {
+    box-sizing: border-box;
+    width: 500px;
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 50px;
+    position: relative;
+}
+
+.container h2 {
+    font-size: large;
+    margin: 15px 0 15px 0;
+}
+
+.container input {
+
+    width: 300px;
+    height: 35px;
+}
+.container textArea {
+    width: 300px;
+    height: 100px;
+}
+
+.container #ro,
+#en,
+#fr {
+    width: 15px;
+    margin-left: 20px;
+    height: 15px;
+}
+
+.container span {
+    height: 20px;
+    /* text-align: center;
+    justify-content: center; */
+    padding-top: 100px;
+
+}
+
+.container #save {
+    position: absolute;
+    top: 400px;
+    right: 150px;
+    width: 60px;
+    height: 30px;
+    font-size: 1.2em;
+    background-color: lightgreen;
+    border: 1px solid black;
+    border-radius: 4px;
+}
+
+.container #clear {
+    width: 60px;
+    height: 30px;
+    font-size: 1.2em;
+    position: absolute;
+    top: 400px;
+    right: 230px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 4px;
+}

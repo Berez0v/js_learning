@@ -1,12 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
+
 <body>
+    <section class="container">
+        <h2>Your Name</h2>
+        <input type="text" placeholder="Input name here" id="uName">
+        <h2>Your City</h2>
+        <input type="text" id="city" list="City" placeholder="Balti">
+        <h2>Languages You Know</h2>
+        <input type="checkbox" id="ro">
+        <span>Romanian</span>
+        <input type="checkbox" id="en">
+        <span>English</span>
+        <input type="checkbox" id="fr">
+        <span>French</span>
+        <h2>Your Motivation to become a developer</h2>
+        <textarea placeholder="Write your message here" id="textArea"></textarea>
+        <button id="clear">Clear</button>
+        <button id="save">Save</button>
+        <datalist id="City">
+            <option value="Balti"></option>
+            <option value="Chishinau"></option>
+            <option value="Orhei"></option>
+            <option value="Tiraspol"></option>
+            <option value="Ungheni"></option>
+            <option value="Rascani"></option>
+            <option value="Bender"></option>
+            <option value="Cahul"></option>
+            <option value="Dubasari"></option>
+        </datalist>
+
+    </section>
     <script src="index.js"></script>
 </body>
+
 </html>
