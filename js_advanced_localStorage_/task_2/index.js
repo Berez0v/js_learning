@@ -1,18 +1,16 @@
+let tasks = [];
 
-function remove(event) {
-    let btn = event.target;
-    let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-    allTasks.forEach((task, index) => {
-        if (task.task === btn.parentNode.children[0].value) {
-            allTasks.splice(index, 1);
-        }
-    })
-    localStorage.setItem("tasks", JSON.stringify(allTasks));
+function remove(item) {
+    const taskIndex = tasks.findIndex(item => item.id === Number(item.id));
 
-    btn.parentNode.parentNode.removeChild(btn.parentNode);
-    const count = document.querySelector('.count')
-    const countValue = parseInt(count.innerText);
-    count.innerText = `${countValue - 1} tasks`
+    if (taskIndex !== -1) {
+        tasks.splice(taskIndex, 1)
+    }
+
+    item.remove()
+
+    count.innerText = `${tasks.length} tasks`;
+    localStorage.setItem('tasks', JSON.stringify(tasks))
 }
 
 function redact(event) {
@@ -23,14 +21,14 @@ function redact(event) {
    buttonRedact = event.target;
    buttonRedact.parentNode.appendChild(accept);
    const input = buttonRedact.parentNode.children[0];
-   input.disabled = false;    
+   input.disabled = false;
    let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
    let indexValue = 0;
    allTasks.forEach((task, index) => {
        if (task.task === input.value) {
            indexValue = index;
         }
-    })  
+    })
     accept.addEventListener('click',()=>{
         allTasks[indexValue].task = input.value;
         accept.parentNode.removeChild(accept);
@@ -44,40 +42,64 @@ function redact(event) {
 
 const addNew = document.querySelector('.addButton');
 const count = document.querySelector('.count')
+
 window.onload = () => {
-    if (localStorage.getItem("tasks") == null) {
-        return;
-    } else {
-
-        const list = document.querySelector('.list');
-        let allTasks = Array.from(JSON.parse(localStorage.getItem("tasks")));
-        count.innerText = `${allTasks.length} tasks`;
-        allTasks.forEach(elem => {
-            const listElement = document.createElement('li');
-            listElement.innerHTML = `<input disabled = "true" value="${elem.task}" type="text"><div id="redact"></div><p id="delete">X</p>`;
-            list.insertBefore(listElement, list.children[0]);
-            listElement.querySelector("#delete").addEventListener('click', remove);
-            listElement.querySelector("#redact").addEventListener('click', redact);
-        })
-        
-
+    if (!localStorage.getItem("tasks")) {
+        return
     }
+
+    tasks = JSON.parse(localStorage.getItem("tasks"));
+    insertItems()
 }
 
+const insertItems = () => {
+    const list = document.querySelector('.list');
+
+    count.innerText = `${tasks.length} tasks`;
+    tasks.forEach(elem => {
+        const listElement = document.createElement('li');
+        listElement.id=`element-${elem.id}`
+        listElement.innerHTML = `<input disabled = "true" value="${elem.task}" type="text"><div id="redact"></div><p id="delete">X</p>`;
+        list.insertBefore(listElement, list.children[0]);
+        listElement.querySelector("#delete").addEventListener('click', () => {
+            remove(listElement)
+        });
+        listElement.querySelector("#redact").addEventListener('click', redact);
+    })
+}
+
+function randomInteger(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 addNew.onclick = () => {
     const newTask = document.querySelector('#addItem');
     const list = document.querySelector('.list');
+
     if (!newTask.value) {
         return;
     }
-    localStorage.setItem("tasks", JSON.stringify([...JSON.parse(localStorage.getItem("tasks") || "[]"), { task: newTask.value }]));
+
+    if (localStorage.getItem("tasks")) {
+        tasks = JSON.parse(localStorage.getItem("tasks"))
+    }
+
+    const id = randomInteger(100, 9999999)
+    const newElement = {
+        id,
+        task: newTask.value,
+    }
+
+    tasks.push(newElement)
+    localStorage.setItem("tasks", JSON.stringify(tasks));
 
     const listElement = document.createElement('li');
     const countValue = parseInt(count.innerText);
     count.innerText = `${countValue + 1} tasks`
     listElement.innerHTML = `<input value="${newTask.value}" type="text" disabled = "true"><div id="redact"></div><p id="delete">X</p>`;
-    listElement.querySelector("#delete").addEventListener('click', remove);
+    listElement.querySelector("#delete").addEventListener('click', ()=> {
+        remove(listElement)
+    });
     listElement.querySelector("#redact").addEventListener('click', redact);
 
     list.insertBefore(listElement, list.children[0]);
