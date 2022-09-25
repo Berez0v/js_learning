@@ -1,9 +1,13 @@
 function serverResponse() {
-    let res;
-    setTimeout(() => {
-        document.querySelector('#result').innerText = "response from server";
-    }, 2000);
-    return 1;
+    return new Promise(resolve => {
+        
+        setTimeout(() => {
+            document.querySelector('#result').innerText = "response from server";
+        resolve(1);
+        }, 2000);
+
+
+    });
 }
 
 
@@ -13,4 +17,4 @@ async function userRequest() {
     return await serverResponse();
 
 }
-userRequest();
+userRequest().then();
